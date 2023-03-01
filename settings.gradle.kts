@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Twitter Show Case"
-include ':app'
+include(":app")
