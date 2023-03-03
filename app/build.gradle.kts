@@ -1,5 +1,5 @@
 plugins {
-    id("twittershowcase.android.library")
+    id("twittershowcase.android.application")
     id("twittershowcase.android.compose")
     id("twittershowcase.android.hilt")
 }
@@ -41,6 +41,10 @@ android {
 }
 
 dependencies {
+    implementation(project(":presentation:login"))
+    
+    implementation(project(":core:common"))
+
     implementation(libs.accompanist.systemuicontroller)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)

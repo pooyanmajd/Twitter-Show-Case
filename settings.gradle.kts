@@ -15,3 +15,10 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Twitter Show Case"
 include(":app")
+include(":data")
+include(":data:network")
+include(":domain")
+include(":presentation")
+include(":presentation:login")
+include(":core")
+include(":core:common")
