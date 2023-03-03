@@ -43,6 +43,9 @@ android {
 dependencies {
     implementation(project(":presentation:login"))
 
+    implementation(project(":domain"))
+    implementation(project(":data:logic"))
+
     implementation(project(":core:common"))
     implementation(project(":core:design"))
     implementation(project(":core:ui"))

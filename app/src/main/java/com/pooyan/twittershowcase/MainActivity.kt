@@ -14,6 +14,7 @@ import androidx.core.view.WindowCompat
 import androidx.metrics.performance.JankStats
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.pooyan.design.theme.TwitterShowCaseTheme
+import com.pooyan.domain.network.NetworkMonitor
 import com.pooyan.twittershowcase.ui.TwitterShowCaseApp
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -27,6 +28,9 @@ class MainActivity : ComponentActivity() {
      */
     @Inject
     lateinit var lazyStats: dagger.Lazy<JankStats>
+
+    @Inject
+    lateinit var networkMonitor: NetworkMonitor
 
     val viewModel: MainActivityViewModel by viewModels()
 
@@ -56,7 +60,10 @@ class MainActivity : ComponentActivity() {
             }
 
             TwitterShowCaseTheme {
-                TwitterShowCaseApp(windowSizeClass = calculateWindowSizeClass(this))
+                TwitterShowCaseApp(
+                    windowSizeClass = calculateWindowSizeClass(this),
+                    networkMonitor = networkMonitor
+                )
             }
         }
     }
