@@ -27,6 +27,8 @@ class AndroidPresentationConventionPlugin : Plugin<Project> {
 
             dependencies {
                 add("implementation", project(":core:common"))
+                add("implementation", project(":core:design"))
+
                 add("implementation", project(":domain"))
 
                 add("testImplementation", kotlin("test"))
