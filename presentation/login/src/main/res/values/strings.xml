@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="twitter_show_case">Twitter Show Case</string>
+    <string name="twitter_name">Twitter name…</string>
+    <string name="next">Next</string>
+    <string name="default_twitter_account">We\'ll display tweets from @AndroidDev by default</string>
+    <string name="twitter_account_title">To see updates from a Twitter account, choose a username to follow its timeline</string>
+    <string name="android_dev">AndroidDev</string>
+</resources>

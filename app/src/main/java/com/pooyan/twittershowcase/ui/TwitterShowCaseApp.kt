@@ -89,7 +89,9 @@ fun TwitterShowCaseApp(
                     .consumeWindowInsets(padding)
                     .windowInsetsPadding(WindowInsets.safeDrawing)
             ) {
-                TwitterShowCaseNavHost(appState.navController)
+                TwitterShowCaseNavHost(
+                    navController = appState.navController
+                )
             }
         }
     }

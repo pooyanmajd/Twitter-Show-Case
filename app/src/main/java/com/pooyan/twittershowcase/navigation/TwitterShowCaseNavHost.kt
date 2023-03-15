@@ -1,17 +1,23 @@
 package com.pooyan.twittershowcase.navigation
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import com.pooyan.login.LoginRoute
+import com.pooyan.login.loginGraph
 
 @Composable
 fun TwitterShowCaseNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier,
-    startDestination: String = "forYouNavigationRoute",
+    startDestination: String = LoginRoute
 ) {
-    Text(text = "This is a header")
-
-    Text(text = "This is a footer")
+    NavHost(
+        navController = navController,
+        startDestination = startDestination,
+        modifier = modifier,
+    ) {
+        loginGraph()
+    }
 }
