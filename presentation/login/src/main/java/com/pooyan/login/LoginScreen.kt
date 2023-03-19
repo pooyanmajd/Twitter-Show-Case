@@ -2,7 +2,6 @@ package com.pooyan.login
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,6 +24,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -34,12 +34,14 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.pooyan.design.component.AppBackground
 import com.pooyan.design.component.DefaultButton
 import com.pooyan.design.component.DefaultTopAppBar
-import com.pooyan.design.theme.BackgroundTheme
 import com.pooyan.design.theme.TwitterShowCaseTheme
 import com.pooyan.ui.DevicePreviews
 
 @Composable
-fun LoginScreen(modifier: Modifier = Modifier, viewModel: LoginViewModel = hiltViewModel()) {
+internal fun LoginScreen(
+    modifier: Modifier = Modifier,
+    viewModel: LoginViewModel = hiltViewModel()
+) {
 
     LoginScreenDetails(modifier = modifier, onNextClick = {
         viewModel.onTwitterNameSelected(it)
@@ -52,7 +54,7 @@ fun LoginScreen(modifier: Modifier = Modifier, viewModel: LoginViewModel = hiltV
     ExperimentalLayoutApi::class
 )
 @Composable
-private fun LoginScreenDetails(
+internal fun LoginScreenDetails(
     modifier: Modifier,
     onNextClick: (String) -> Unit
 ) {
@@ -87,7 +89,8 @@ private fun LoginScreenDetails(
             OutlinedTextField(
                 modifier = modifier
                     .fillMaxWidth()
-                    .padding(top = 16.dp),
+                    .padding(top = 16.dp)
+                    .testTag(stringResource(R.string.twitter_account_tag)),
                 value = twitterName,
                 colors = TextFieldDefaults.textFieldColors(
                     containerColor = Color.Transparent,
@@ -122,10 +125,6 @@ private fun LoginScreenDetails(
                     )
                 }
             )
-
-            Spacer(modifier = modifier.weight(1F))
-
-            Text(text = "This is at the bottom", modifier = modifier.padding(0.dp))
         }
     }
 }

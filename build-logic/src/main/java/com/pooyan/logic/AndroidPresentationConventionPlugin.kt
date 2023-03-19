@@ -33,7 +33,9 @@ class AndroidPresentationConventionPlugin : Plugin<Project> {
                 add("implementation", project(":domain"))
 
                 add("testImplementation", kotlin("test"))
+                add("testImplementation", project(":core:testing"))
                 add("androidTestImplementation", kotlin("test"))
+                add("androidTestImplementation", project(":core:testing"))
 
                 add("implementation", libs.findLibrary("coil.kt").get())
                 add("implementation", libs.findLibrary("coil.kt.compose").get())
