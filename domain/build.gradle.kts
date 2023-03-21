@@ -5,6 +5,8 @@ plugins {
 }
 
 dependencies {
+    api(project(":core:model"))
+
     implementation(libs.kotlinx.datetime)
     implementation(libs.kotlinx.coroutines.core)
 }

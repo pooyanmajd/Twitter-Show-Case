@@ -19,6 +19,8 @@ android {
 
 dependencies {
     implementation(project(":domain"))
+    implementation(project(":core:model"))
+    implementation(project(":data:datastore"))
 
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.serialization.json)
