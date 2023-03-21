@@ -65,7 +65,7 @@ fun TwitterShowCaseApp(
 
         val bottomPadding: Dp by animateDpAsState(
             if (snackbarHostState.currentSnackbarData != null) {
-                64.dp
+                32.dp
             } else {
                 0.dp
             }

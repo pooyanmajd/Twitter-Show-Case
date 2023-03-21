@@ -40,11 +40,13 @@ import com.pooyan.ui.DevicePreviews
 @Composable
 internal fun LoginScreen(
     modifier: Modifier = Modifier,
-    viewModel: LoginViewModel = hiltViewModel()
+    viewModel: LoginViewModel = hiltViewModel(),
+    onNavigateToTweets: () -> Unit
 ) {
 
     LoginScreenDetails(modifier = modifier, onNextClick = {
         viewModel.onTwitterNameSelected(it)
+        onNavigateToTweets()
     })
 }
 

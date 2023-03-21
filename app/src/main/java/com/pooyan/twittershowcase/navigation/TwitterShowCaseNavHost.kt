@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import com.pooyan.dev.tweet.TweetsRoute
+import com.pooyan.dev.tweet.tweetsGraph
 import com.pooyan.login.LoginRoute
 import com.pooyan.login.loginGraph
 
@@ -18,6 +20,10 @@ fun TwitterShowCaseNavHost(
         startDestination = startDestination,
         modifier = modifier,
     ) {
-        loginGraph()
+        loginGraph(onNavigateToTweets = {
+            navController.navigate(TweetsRoute)
+        })
+
+        tweetsGraph()
     }
 }

@@ -42,6 +42,7 @@ android {
 
 dependencies {
     implementation(project(":presentation:login"))
+    implementation(project(":presentation:tweet"))
 
     implementation(project(":domain"))
     implementation(project(":data:logic"))
