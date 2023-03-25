@@ -43,9 +43,11 @@ import com.pooyan.twittershowcase.navigation.TwitterShowCaseNavHost
 fun TwitterShowCaseApp(
     windowSizeClass: WindowSizeClass,
     networkMonitor: NetworkMonitor,
+    userHasSelectedTwitterAccount: Boolean,
     appState: TwitterShowCaseAppState = rememberTwitterShowCaseAppState(
         windowSizeClass = windowSizeClass,
-        networkMonitor = networkMonitor
+        networkMonitor = networkMonitor,
+        userHasSelectedTwitterAccount = userHasSelectedTwitterAccount,
     )
 ) {
     AppBackground {
@@ -90,7 +92,8 @@ fun TwitterShowCaseApp(
                     .windowInsetsPadding(WindowInsets.safeDrawing)
             ) {
                 TwitterShowCaseNavHost(
-                    navController = appState.navController
+                    navController = appState.navController,
+                    startDestination = appState.destination
                 )
             }
         }

@@ -13,7 +13,7 @@ import com.pooyan.login.loginGraph
 fun TwitterShowCaseNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier,
-    startDestination: String = LoginRoute
+    startDestination: String = ""
 ) {
     NavHost(
         navController = navController,

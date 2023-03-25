@@ -8,7 +8,10 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.pooyan.dev.tweet.TweetsRoute
 import com.pooyan.domain.network.NetworkMonitor
+import com.pooyan.login.LoginRoute
+import com.pooyan.twittershowcase.MainActivityUiState
 import com.pooyan.ui.TrackDisposableJank
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.SharingStarted
@@ -21,11 +24,12 @@ fun rememberTwitterShowCaseAppState(
     windowSizeClass: WindowSizeClass,
     networkMonitor: NetworkMonitor,
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
-    navController: NavHostController = rememberNavController()
+    navController: NavHostController = rememberNavController(),
+    userHasSelectedTwitterAccount: Boolean,
 ): TwitterShowCaseAppState {
     NavigationTrackingSideEffect(navController)
-    return remember(windowSizeClass, navController) {
-        TwitterShowCaseAppState(windowSizeClass, navController, coroutineScope, networkMonitor)
+    return remember(windowSizeClass, navController, userHasSelectedTwitterAccount) {
+        TwitterShowCaseAppState(windowSizeClass, navController, coroutineScope, networkMonitor, userHasSelectedTwitterAccount)
     }
 }
 
@@ -35,6 +39,7 @@ class TwitterShowCaseAppState(
     val navController: NavHostController,
     coroutineScope: CoroutineScope,
     networkMonitor: NetworkMonitor,
+    userHasSelectedTwitterAccount: Boolean,
 ) {
     val isOffline = networkMonitor.isOnline
         .map(Boolean::not)
@@ -43,6 +48,8 @@ class TwitterShowCaseAppState(
             started = SharingStarted.WhileSubscribed(5_000),
             initialValue = false,
         )
+
+    val destination = if (userHasSelectedTwitterAccount) TweetsRoute else LoginRoute
 }
 
 /**

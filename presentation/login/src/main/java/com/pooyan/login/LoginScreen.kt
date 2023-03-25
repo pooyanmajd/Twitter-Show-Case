@@ -56,10 +56,7 @@ internal fun LoginScreen(
     ExperimentalLayoutApi::class
 )
 @Composable
-internal fun LoginScreenDetails(
-    modifier: Modifier,
-    onNextClick: (String) -> Unit
-) {
+internal fun LoginScreenDetails(modifier: Modifier, onNextClick: (String) -> Unit) {
     Scaffold(
         modifier = modifier.fillMaxSize(),
         topBar = { DefaultTopAppBar(titleRes = R.string.twitter_show_case) },
@@ -98,8 +95,7 @@ internal fun LoginScreenDetails(
                     containerColor = Color.Transparent,
                 ),
                 keyboardOptions = KeyboardOptions.Default.copy(
-                    keyboardType = KeyboardType.Text,
-                    imeAction = ImeAction.Next
+                    keyboardType = KeyboardType.Text, imeAction = ImeAction.Next
                 ),
                 supportingText = {
                     Text(text = stringResource(R.string.default_twitter_account))
